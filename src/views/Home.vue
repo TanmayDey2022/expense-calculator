@@ -110,7 +110,9 @@
                   ></i>
                   Expenses
                 </p>
-                <strong class="">{{ countTotalExpenses() }} Transactions</strong>
+                <strong class=""
+                  >{{ countTotalExpenses() }} Transactions</strong
+                >
               </div>
 
               <div class="progress">
@@ -136,7 +138,7 @@
               <div class="d-flex justify-content-around">
                 <router-link
                   to="/expense"
-                  class="btn btn-danger btn-block"
+                  class="btn btn-danger btn-sm"
                   type="button"
                 >
                   Expense</router-link
@@ -144,7 +146,7 @@
 
                 <router-link
                   to="/income"
-                  class="btn btn-success btn-block"
+                  class="btn btn-success btn-sm"
                   type="button"
                 >
                   Income</router-link

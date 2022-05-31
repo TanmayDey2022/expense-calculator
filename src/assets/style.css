@@ -24,56 +24,6 @@ h6 {
   padding: 5px 40px !important;
   border: 2px solid transparent;
 }
-
-.btn i {
-  margin-right: 5px;
-}
-
-.btn:focus {
-  outline: 0 !important;
-}
-
-.btn:active,
-.btn.active,
-button:focus,
-button:active {
-  outline: 0 !important;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.badge-primary {
-  background-color: #13a54e;
-  border-color: #13a54e;
-}
-
-.btn-success {
-  color: #fff !important;
-  background-color: #00d000;
-  border-color: #00d000;
-}
-.btn-success:hover,
-.btn-success:focus,
-.btn-success:active {
-  color: #fff !important;
-  background-color: #00b300 !important;
-  border-color: #00b300 !important;
-}
-
-.btn-danger,
-.badge-danger {
-  color: #fff !important;
-  background-color: #ff1a1a;
-  border-color: #ff1a1a;
-}
-.btn-danger:hover,
-.btn-danger:focus,
-.btn-danger:active {
-  color: #fff !important;
-  background-color: #e60000 !important;
-  border-color: #e60000 !important;
-}
-
 .container {
   padding-top: 125px;
 }
@@ -138,14 +88,9 @@ button:active {
   padding: 7px 16px !important;
   margin-top: -14px;
 }
-
 .card-body {
   padding: 15px 0;
 }
-
-
-
-
 /*backgrounds*/
 .bg-green {
   background-color: #13a54e !important;
@@ -313,25 +258,5 @@ svg g text.circle-chart__subline {
   justify-content: center;
   align-items: center;
 }
-.icon-account {
-  background: rgba(16, 196, 105, 0.2);
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  float: none;
-  margin: 0 auto;
-  font-size: 23px;
-  padding-top: 4px;
-  border-radius: 6px;
-  color: #13a54e;
-}
-.reportrange {
-  width: auto;
-  float: right;
-  background: #f8f8f8;
-  padding: 6px 10px;
-  border-radius: 3px;
-  margin-top: -15px;
-  font-size: 14px;
-  border: 1.3px solid #eaeced;
-}
+
+

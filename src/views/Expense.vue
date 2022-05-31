@@ -8,7 +8,7 @@
           <h4>Expense records</h4>
           <button
             type="button"
-            class="btn btn-success mt-1 mb-1"
+            class="btn btn-success mt-1 mb-1 btn-sm"
             @click="isShowModal = !isShowModal"
           >
             Add Expense
@@ -102,7 +102,7 @@
                   <td>{{ expense.date }}</td>
                   <td>
                     <button
-                      class="btn btn-danger"
+                      class="btn btn-danger btn-sm"
                       @click="deleteExpense(index)"
                     >
                       Delete
