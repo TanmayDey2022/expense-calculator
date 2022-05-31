@@ -27,4 +27,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.container {
+  padding-top: 125px;
+}</style>

@@ -13,9 +13,8 @@
             <h3>{{ getPerformanceText(percentageCalculator()) }}, Tanmay!</h3>
 
             <p>
-              You have spent {{ percentageCalculator() }}% of your expected
-              monthly income. You still have {{ 100 - percentageCalculator() }}%
-              to go.
+              You have spent {{ percentageCalculator() }}% of your monthly
+              income. You still have {{ 100 - percentageCalculator() }}% to go.
             </p>
           </div>
         </div>
@@ -123,7 +122,7 @@
                   aria-valuemin="0"
                   aria-valuemax="100"
                 >
-                  {{ percentageCalculator() }}% Spent
+                  {{ percentageCalculator() }} % Spent
                 </div>
               </div>
             </div>
@@ -131,7 +130,7 @@
           <div class="">
             <div class="row transaction-links">
               <div class="col-md-12">
-                <p class="text-center view-all-transaction">
+                <p class="text-center mt-2">
                   View all transaction records
                 </p>
               </div>

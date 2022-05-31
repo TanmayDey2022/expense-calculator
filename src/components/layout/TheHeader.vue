@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top pb-0">
+    <div class="container">
       <router-link to="/" class="navbar-brand fw-bold"> Expence</router-link>
       <button
         class="navbar-toggler"
@@ -13,17 +13,24 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ml-auto pb-2">
           <li class="nav-item">
-            <router-link to="/" class="nav-link" active-class="active"> Overview</router-link>
+            <router-link to="/" class="nav-link" active-class="active">
+              Overview</router-link
+            >
           </li>
 
           <li class="nav-item">
-            <router-link to="/expense" class="nav-link" active-class="active"> Expense</router-link>
+            <router-link to="/expense" class="nav-link" active-class="active">
+              Expense</router-link
+            >
           </li>
           <li class="nav-item">
-            <router-link to="/income" class="nav-link" active-class="active"> Income</router-link>
+            <router-link to="/income" class="nav-link" active-class="active">
+              Income</router-link
+            >
           </li>
         </ul>
       </div>
@@ -32,15 +39,15 @@
 </template>
 <style scoped>
 .bg-primary {
-    background-color: #41b883!important;
+  background-color: #41b883 !important;
 }
-  .navbar-light .navbar-nav .nav-link.active{
-    font-weight: 600;
-  }
-  .navbar-dark .navbar-nav .nav-link {
-    color: #fff;
+.navbar-light .navbar-nav .nav-link.active {
+  font-weight: 600;
 }
-.navbar-dark .navbar-nav .nav-link.active{
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}
+.navbar-dark .navbar-nav .nav-link.active {
   color: #fff !important;
   font-weight: 600;
   border-bottom: 2px solid #fff;

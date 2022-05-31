@@ -82,8 +82,8 @@
           <h3>{{ getPerformanceText(percentageCalculator()) }}, Tanmay!</h3>
 
           <p>
-            You have spent {{ percentageCalculator() }}% of your expected
-            monthly budget. You still have {{ 100 - percentageCalculator() }}%
+            You have spent {{ percentageCalculator() }}% of your monthly
+              income. You still have {{ 100 - percentageCalculator() }}%
             to go.
           </p>
         </div>

@@ -24,10 +24,6 @@ h6 {
   padding: 5px 40px !important;
   border: 2px solid transparent;
 }
-.container {
-  padding-top: 125px;
-}
-
 /*page header*/
 .heading-content {
   float: left;
@@ -96,14 +92,8 @@ h6 {
   background-color: #13a54e !important;
   color: #fff;
 }
-.bg-warning {
-  background-color: #f4be4a !important;
-  color: #fff;
-}
-.bg-danger {
-  background-color: #ff0000 !important;
-  color: #fff;
-}
+
+
 
 
 /*expense chart*/
@@ -200,10 +190,7 @@ svg g text.circle-chart__subline {
   display: block;
   line-height: 1;
 }
-.view-all-transaction {
-  color: #a5b2b9;
-  font-weight: 300;
-}
+
 .transaction-amount-item {
   margin: 15px 0;
 }
@@ -258,5 +245,8 @@ svg g text.circle-chart__subline {
   justify-content: center;
   align-items: center;
 }
-
+.progress {  
+  height: 1.5rem;
+  font-size: 1rem;
+}
 
