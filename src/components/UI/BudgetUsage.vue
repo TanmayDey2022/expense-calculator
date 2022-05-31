@@ -44,7 +44,7 @@
                 text-anchor="middle"
                 font-size="8"
               >
-                {{ percentageCalculator() }}%
+                {{ percentageCalculatorForBudget() }}%
               </text>
               <text
                 class="circle-chart__subline"
@@ -72,19 +72,21 @@
 
     <div
       class="card text-white p-0"
-      :class="getBackgroundcolor(percentageCalculator())"
+      :class="getBackgroundcolor(percentageCalculatorForBudget())"
     >
       <div class="card-header">
         <h4 class="text-white">Budget Status</h4>
       </div>
       <div class="card-body pt-5 pb-5 ps-2 pe-2">
         <div class="insight-card text-center">
-          <h3>{{ getPerformanceText(percentageCalculator()) }}, Tanmay!</h3>
+          <h3>
+            {{ getPerformanceText(percentageCalculatorForBudget()) }}, Tanmay!
+          </h3>
 
           <p>
-            You have spent {{ percentageCalculator() }}% of your monthly
-              income. You still have {{ 100 - percentageCalculator() }}%
-            to go.
+            You have spent {{ percentageCalculatorForBudget() }}% of your
+            monthly income. You still have
+            {{ 100 - percentageCalculatorForBudget() }}% to go.
           </p>
         </div>
       </div>
@@ -93,6 +95,7 @@
 </template>
 
 <script>
+import Calculation from "../../mixins/calculation.js";
 export default {
   data() {
     return {
@@ -100,6 +103,7 @@ export default {
       totalIncomes: 0,
     };
   },
+  mixins: [Calculation],
 
   methods: {
     getTotalSpend() {
@@ -112,54 +116,6 @@ export default {
       let incomes = JSON.parse(localStorage.getItem("incomes"));
       this.totalIncomes = this.totalCalculate(incomes);
       return this.totalIncomes;
-    },
-
-    totalCalculate(obj) {
-      if(!obj){
-        return 0
-      }
-      const total = obj.reduce((total, income) => {
-        return total + parseFloat(income.amount);
-      }, 0);
-      return total;
-    },
-
-    percentageCalculator() {
-      let percentage = (this.totalExpense / this.totalIncomes) * 100;
-      if (percentage > 0) {
-        this.setStrokeDasharray((percentage).toFixed(2));
-        return Math.round(percentage);
-      } else {
-        return 0;
-      }
-    },
-
-    getBackgroundcolor(percentage) {
-      if (percentage < 30) {
-        return "bg-green";
-      } else if (percentage > 30 && percentage < 60) {
-        return "bg-warning";
-      } else {
-        return "bg-danger";
-      }
-    },
-
-    getPerformanceText(percentage) {
-      if (percentage < 30) {
-        return "Looking good";
-      } else if (percentage > 30 && percentage < 60) {
-        return "Be cautious";
-      } else {
-        return "Oh no!";
-      }
-    },
-
-    setStrokeDasharray(percentage) {
-      var chart = document.querySelector("#circle-chart-percentage");
-      if (chart) {
-        chart.style.strokeDasharray = percentage + "," + 100;
-      }
-      return;
     },
   },
 };
