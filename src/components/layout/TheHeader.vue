@@ -14,7 +14,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse ps-5" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto pb-2">
           <li class="nav-item">
             <router-link to="/" class="nav-link" active-class="active">
