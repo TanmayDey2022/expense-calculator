@@ -119,6 +119,7 @@
   </div>
 </template>
 <script>
+import Calculation from "../mixins/calculation.js";
 export default {
   data() {
     return {
@@ -131,6 +132,7 @@ export default {
       updateBadgeKey: 0,
     };
   },
+  mixins: [Calculation],
   methods: {
     getExpenceTypes() {
       return (this.expenceTypes = ["Food", "Rent", "Living", "Transportation"]);
@@ -157,11 +159,6 @@ export default {
       this.updateBadge();
     },
 
-    getAllUserExpenses() {
-      let allExpense;
-      allExpense = JSON.parse(localStorage.getItem("expenses")) || [];
-      return allExpense;
-    },
     updateBadge() {
       this.updateBadgeKey++;
     },
@@ -170,8 +167,8 @@ export default {
       if (confirm(text) === true) {
         const existingExpenses = JSON.parse(localStorage.getItem("expenses"));
         existingExpenses.splice(index, 1);
-        localStorage.setItem("expenses", JSON.stringify(existingExpenses));  
-        this.updateBadge();      
+        localStorage.setItem("expenses", JSON.stringify(existingExpenses));
+        this.updateBadge();
       }
     },
   },

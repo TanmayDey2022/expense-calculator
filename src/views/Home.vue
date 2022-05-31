@@ -275,17 +275,6 @@ export default defineComponent({
         ? JSON.parse(localStorage.getItem("expenses")).length
         : 0;
     },
-    getTotalSpend() {
-      let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-      this.totalExpense = this.totalCalculate(expenses);
-      return this.totalExpense;
-    },
-
-    getTotalIncome() {
-      let incomes = JSON.parse(localStorage.getItem("incomes")) || [];
-      this.totalIncomes = this.totalCalculate(incomes);
-      return this.totalIncomes;
-    },
 
     chartData() {
       let data = [10, 20, 80];
@@ -405,12 +394,6 @@ export default defineComponent({
       return allMatchedData;
     },
 
-    getAllUserExpenses() {
-      let allExpense;
-      allExpense = JSON.parse(localStorage.getItem("expenses")) || [];
-      return allExpense;
-    },
-
     getDoughnutLabels() {
       return ["incomes", "expenses", "savings"];
     },
@@ -422,5 +405,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped lang="scss"></style>

@@ -58,5 +58,23 @@ export default {
       }
       return;
     },
+
+    getAllUserExpenses() {
+      let allExpense;
+      allExpense = JSON.parse(localStorage.getItem("expenses")) || [];
+      return allExpense;
+    },
+
+    getTotalIncome() {
+      let incomes = JSON.parse(localStorage.getItem("incomes")) || [];
+      this.totalIncomes = this.totalCalculate(incomes);
+      return this.totalIncomes;
+    },
+
+    getTotalSpend() {
+        let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+        this.totalExpense = this.totalCalculate(expenses);
+        return this.totalExpense;
+      },
   },
 };
