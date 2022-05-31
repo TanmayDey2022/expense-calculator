@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row" :key="updateBadgeKey">
     <div class="col-md-8">
       <div class="card p-0">
         <div
@@ -87,6 +87,7 @@
                   <th scope="col">Category</th>
                   <th scope="col">Amount</th>
                   <th scope="col">Date</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -99,6 +100,14 @@
                   <td>{{ expense.category }}</td>
                   <td>{{ expense.amount }}</td>
                   <td>{{ expense.date }}</td>
+                  <td>
+                    <button
+                      class="btn btn-danger"
+                      @click="deleteExpense(index)"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -106,7 +115,7 @@
         </div>
       </div>
     </div>
-    <base-budge :key="updateBadgeKey"></base-budge>
+    <base-budge></base-budge>
   </div>
 </template>
 <script>
@@ -119,7 +128,7 @@ export default {
       amount: "",
       category: "",
       date: "",
-      updateBadgeKey:0
+      updateBadgeKey: 0,
     };
   },
   methods: {
@@ -127,9 +136,9 @@ export default {
       return (this.expenceTypes = ["Food", "Rent", "Living", "Transportation"]);
     },
     saveExpense() {
-      if(!this.title,!this.amount, !this.category,!this.date){
-          alert("All feilds are required")
-          return false
+      if ((!this.title, !this.amount, !this.category, !this.date)) {
+        alert("All feilds are required");
+        return false;
       }
       let expense;
       expense = JSON.parse(localStorage.getItem("expenses")) || [];
@@ -145,7 +154,7 @@ export default {
       this.category = "";
       this.date = "";
       this.isShowModal = !this.isShowModal;
-      this.updateBadge()
+      this.updateBadge();
     },
 
     getAllUserExpenses() {
@@ -153,9 +162,18 @@ export default {
       allExpense = JSON.parse(localStorage.getItem("expenses")) || [];
       return allExpense;
     },
-    updateBadge(){
-      this.updateBadgeKey++
-    }
+    updateBadge() {
+      this.updateBadgeKey++;
+    },
+    deleteExpense(index) {
+      let text = "Are you sure to delete this expense";
+      if (confirm(text) === true) {
+        const existingExpenses = JSON.parse(localStorage.getItem("expenses"));
+        existingExpenses.splice(index, 1);
+        localStorage.setItem("expenses", JSON.stringify(existingExpenses));  
+        this.updateBadge();      
+      }
+    },
   },
 };
 </script>

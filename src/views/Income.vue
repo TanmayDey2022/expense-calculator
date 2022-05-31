@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row" :key="updateBadgeKey">
     <div class="col-md-8">
       <div class="card p-0">
         <div
@@ -85,6 +85,7 @@
                   <th scope="col">Category</th>
                   <th scope="col">Amount</th>
                   <th scope="col">Date</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -97,6 +98,14 @@
                   <td>{{ expense.category }}</td>
                   <td>{{ expense.amount }}</td>
                   <td>{{ expense.date }}</td>
+                  <td>
+                    <button
+                      class="btn btn-danger"
+                      @click="deleteIncome(index)"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -154,6 +163,15 @@ export default {
     },
     updateBadge() {
       this.updateBadgeKey++;
+    },
+    deleteIncome(index) {
+      let text = "Are you sure to delete this income";
+      if (confirm(text) === true) {
+        const existingincomes = JSON.parse(localStorage.getItem("incomes"));
+        existingincomes.splice(index, 1);
+        localStorage.setItem("incomes", JSON.stringify(existingincomes));
+        this.updateBadge();
+      }
     },
   },
 };
