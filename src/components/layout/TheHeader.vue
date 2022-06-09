@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top pb-0">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container">
       <router-link to="/" class="navbar-brand fw-bold"> Expence</router-link>
       <button
@@ -15,24 +15,7 @@
       </button>
 
       <div class="collapse navbar-collapse ps-5" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto pb-2">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link" active-class="active">
-              Overview</router-link
-            >
-          </li>
-
-          <li class="nav-item">
-            <router-link to="/expense" class="nav-link" active-class="active">
-              Expense</router-link
-            >
-          </li>
-          <li class="nav-item">
-            <router-link to="/income" class="nav-link" active-class="active">
-              Income</router-link
-            >
-          </li>
-        </ul>
+        <ul class="navbar-nav ml-auto pb-2"></ul>
       </div>
     </div>
   </nav>

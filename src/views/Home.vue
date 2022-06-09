@@ -127,27 +127,53 @@
               </div>
             </div>
           </div>
-          <div class="">
+          <div :key="updateBadgeKey">
             <div class="row transaction-links">
               <div class="col-md-12">
                 <p class="text-center mt-2">View all transaction records</p>
               </div>
               <div class="d-flex justify-content-around">
-                <router-link
-                  to="/expense"
+                <button
                   class="btn btn-danger btn-sm"
                   type="button"
+                  @click="isExpnseShowModal = !isExpnseShowModal"
                 >
-                  Expense</router-link
-                >
+                  Expense
+                </button>
 
-                <router-link
-                  to="/income"
+                <!-- Expense Moal -->
+
+                <base-dialog
+                  :show="isExpnseShowModal"
+                  title="Record Income"                  
+                  :fixed="true"
+                  size="lg"
+                  @close="isExpnseShowModal = !isExpnseShowModal"
+                >
+                  <Expense></Expense>
+                </base-dialog>
+
+                <!-- Expense Moal -->
+
+                <button
                   class="btn btn-success btn-sm"
                   type="button"
+                  @click="isShowIncomeModal = !isShowIncomeModal"
                 >
-                  Income</router-link
+                  Income
+                </button>
+                <!-- Income Moal -->
+                <base-dialog
+                  :show="isShowIncomeModal"
+                  title="Record Income"                  
+                  :fixed="true"
+                  size="lg"
+                  @close="isShowIncomeModal = !isShowIncomeModal"
                 >
+                  <Income></Income>
+                </base-dialog>
+
+                <!-- Income Moal -->
               </div>
             </div>
           </div>
@@ -244,19 +270,28 @@ import Calculation from "../mixins/calculation.js";
 import { defineComponent } from "vue";
 import DoughnutChart from "../components/charts/doughnutChart.vue";
 import BarChart from "../components/charts/barChart.vue";
+import Income from "./Income.vue";
+import Expense from "./Expense.vue";
 
 export default defineComponent({
   name: "Home",
   components: {
     DoughnutChart,
     BarChart,
+    Income,
+    Expense,
   },
   mixins: [Calculation],
   data() {
     return {
       totalExpense: 0,
       totalIncomes: 0,
+      updateBadgeKey: 0,
       dayList: [],
+      isExpnseShowModal: false,
+      isShowModal: false,
+      
+      isShowIncomeModal: false,
     };
   },
   mounted() {

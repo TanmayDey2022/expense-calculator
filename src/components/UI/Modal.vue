@@ -2,10 +2,13 @@
   <teleport to="body">
     <div v-if="show" class="backdrop"></div>
     <transition name="dialog">
-      <dialog open v-if="show">
-        <header class="bg-green">
+      <dialog open v-if="show" :class="size">
+        <header class="bg-green d-flex justify-content-between">
           <slot name="header">
             <h4>{{ title }}</h4>
+            <slot name="actions">
+            <button type="button" class="btn-close" @click="tryClose"></button>
+          </slot>
           </slot>
         </header>
         <section>
@@ -37,8 +40,15 @@ export default {
       required: false,
       default: false,
     },
+    size: {
+      type: String,
+      required: false,
+    },
   },
   emits: ["close"],
+  created() {
+    console.log(this.size);
+  },
   methods: {
     tryClose() {
       this.$emit("close");
@@ -81,6 +91,8 @@ header {
 header h4 {
   margin: 0;
   color: #fff;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 section {
@@ -88,10 +100,11 @@ section {
 }
 
 menu {
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   justify-content: flex-end;
   margin: 0;
+  border-top: 1px solid #ddd;
 }
 
 .dialog-enter-from,
@@ -118,6 +131,12 @@ menu {
   dialog {
     left: calc(50% - 10rem);
     width: 20rem;
+  }
+  dialog.lg {
+    width: 60%;
+    margin: auto;
+    left: 0;
+    top: 0vh;
   }
 }
 </style>
